@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd or Even Number Sequence</title>
+</head>
+<body>
+
+<h2>Odd or Even Number Sequence</h2>
+
+<form onsubmit="event.preventDefault(); displayOddEvenSequence()">
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" name="numberInput" required>
+
+    <button type="submit">Submit</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+function displayOddEvenSequence() {
+    // Get user input
+    const userInput = document.getElementById('numberInput').value;
+    
+    // Convert input to a number
+    const number = parseInt(userInput);
+
+    // Generate arrays of odd and even numbers
+    const oddNumbers = [];
+    const evenNumbers = [];
+
+    for (let i = 1; i <= number; i++) {
+        if (i % 2 !== 0) {
+            oddNumbers.push(i);
+        } else {
+            evenNumbers.push(i);
+        }
+    }
+
+    // Display the result
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `Odd Numbers: ${oddNumbers.join(', ')}<br>Even Numbers: ${evenNumbers.join(', ')}`;
+}
+</script>
+
+</body>
+</html>
